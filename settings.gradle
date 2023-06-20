@@ -1,0 +1,14 @@
+rootProject.name = 'price-validator'
+include ':model'
+project(':model').projectDir = file('./domain/model')
+include ':usecase'
+project(':usecase').projectDir = file('./domain/usecase')
+include ':app-service'
+project(':app-service').projectDir = file('./application/app-service')
+include ':jpa-repository'
+project(':jpa-repository').projectDir =file('./infrastructure/adapters/jpa-repository')
+include ':api-rest'
+project(':api-rest').projectDir = file('./infrastructure/entry-points/api-rest')
+include ':utility'
+project(':utility').projectDir = file('./infrastructure/helpers/utility')
+
