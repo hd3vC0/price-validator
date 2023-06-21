@@ -1,13 +1,13 @@
 package com.trevnu.model.price;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.Date;
 
 @Data
 @Builder(toBuilder = true)
+@AllArgsConstructor
+@NoArgsConstructor
 @ToString
 public class ProductPrice {
     private Integer brandId;
