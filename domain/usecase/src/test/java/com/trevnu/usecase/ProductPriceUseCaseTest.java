@@ -5,6 +5,7 @@ import com.trevnu.model.price.exception.ProductPriceNotFoundException;
 import com.trevnu.model.price.gateways.PriceServiceGateway;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.function.Executable;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -63,8 +64,9 @@ class ProductPriceUseCaseTest {
     void getPrice_whenRepositoryReturn_emptyList(){
         when(priceServiceGateway.getPrice(any(), any(), any())).thenReturn(Collections.emptyList());
 
-        assertThrows(ProductPriceNotFoundException.class,
-                () -> productPriceUseCase.getPrice(35455, new Date(), 1L)
-        );
+        Executable executable = () -> productPriceUseCase.getPrice(35455, new Date(), 1L);
+
+        assertThrows(ProductPriceNotFoundException.class,executable);
+
     }
 }
